@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de commandes dentaires - Liste de matériel</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/materialList.html">Matériel</a></li>
+                <li><a href="/cart.html">Panier</a></li>
+                <li><a href="/statistics.html">Statistiques</a></li>
+                <li><a href="/archives.html">Archives</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>Liste de matériel</h1>
+
+        <h2>Ajouter une catégorie</h2>
+        <form id="addCategoryForm">
+            <input type="text" id="categoryName" placeholder="Nom de la catégorie" required>
+            <button type="submit">Ajouter une catégorie</button>
+        </form>
+
+        <h2>Ajouter un matériel</h2>
+        <form id="addMaterialForm">
+            <input type="text" id="name" placeholder="Nom de l'article" required>
+            <input type="number" id="ideal_quantity" placeholder="Quantité idéale" required>
+            <input type="url" id="supplier_url" placeholder="URL du fournisseur" required>
+            <input type="number" id="unit_price" placeholder="Prix à l'unité" step="0.01" required>
+            <select id="categoryId" required>
+                <option value="">Sélectionner une catégorie</option>
+                <!-- Les catégories seront ajoutées ici dynamiquement -->
+            </select>
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <h2>Liste des matériaux par catégorie</h2>
+        <div id="categorizedMaterialList">
+            <!-- Les matériaux catégorisés seront affichés ici -->
+        </div>
+    </div>
+
+    <script src="/js/materialList.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de commandes dentaires - Panier</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/materialList.html">Matériel</a></li>
+                <li><a href="/cart.html">Panier</a></li>
+                <li><a href="/statistics.html">Statistiques</a></li>
+                <li><a href="/archives.html">Archives</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>Panier actuel</h1>
+
+        <ul id="cartList">
+            <!-- Le contenu du panier sera inséré ici dynamiquement -->
+        </ul>
+
+        <div id="cartTotal">
+            <!-- Le total du panier sera inséré ici dynamiquement -->
+        </div>
+
+        <button id="finalizeAndDownload">Finaliser et Télécharger tableau Excel</button>
+    </div>
+
+    <script src="/js/cart.js"></script>
+</body>
+</html>
