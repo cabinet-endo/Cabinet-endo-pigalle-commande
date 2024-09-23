@@ -22,10 +22,29 @@ document.addEventListener('DOMContentLoaded', () => {
         div.innerHTML = `
             <h3>Commande du ${new Date(archive.date).toLocaleDateString()}</h3>
             <ul>
-                ${archive.items.map(item => `<li>${item.name} - Quantité: ${item.quantity}</li>`).join('')}
+                ${archive.items.map(item => `<li>${item.name} - Quantité: ${item.quantity} - Prix total: ${item.totalPrice}€</li>`).join('')}
             </ul>
             <a href="/api/archives/${archive.id}/excel" download>Télécharger Excel</a>
+            <button onclick="deleteArchive(${archive.id})">Supprimer</button>
         `;
         return div;
     }
+
+    function deleteArchive(id) {
+        if (confirm('Êtes-vous sûr de vouloir supprimer cette archive ?')) {
+            fetch(`/api/archives/${id}`, {
+                method: 'DELETE',
+            })
+            .then(response => {
+                if (response.ok) {
+                    fetchArchives();
+                } else {
+                    throw new Error('Erreur lors de la suppression');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
+
+    window.deleteArchive = deleteArchive;
 });

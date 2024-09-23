@@ -73,6 +73,14 @@ module.exports = {
     return newArchive;
   },
   getArchiveById: (id) => archives.find(a => a.id === parseInt(id)),
+  deleteArchive: (id) => {
+    const index = archives.findIndex(a => a.id === parseInt(id));
+    if (index !== -1) {
+      archives.splice(index, 1);
+      return true;
+    }
+    return false;
+  },
 
   // Fonction pour les statistiques
   getStatistics: (startDate, endDate, type = 'volume') => {
